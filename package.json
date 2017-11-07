@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/pwatrous/Simple-Reddit-API/issues"
   },
-  "homepage": "https://github.com/pwatrous/Simple-Reddit-API#readme"
+  "homepage": "https://github.com/pwatrous/Simple-Reddit-API#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
