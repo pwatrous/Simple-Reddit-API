@@ -11,11 +11,10 @@ app.get("/", (req, res) => {
 
 app.get("/subreddit/:name", (req, res) => {
 	let url = "http://www.reddit.com/r/" + req.params.name + ".json";
-	let json;
-	request(url, (error, response, body) => {
-		json = body;
-		console.log(json);
-		res.json({ data: "This is where the json will be returned" });
+	request(url, function(error, response, body) {
+		let json = JSON.parse(body).data.children;
+		console.log(Array.isArray(json));
+		res.json({ data: json });
 	});
 });	
 
