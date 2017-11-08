@@ -15,6 +15,7 @@ app.get("/subreddit/:name", (req, res) => {
 		let json = JSON.parse(body).data.children;
 		// fetches the subreddit name from the json response
 		let nameOfSubreddit = json[0].data.subreddit;
+		// extracts the relevant information from each post in the json response
 		let subredditPosts = {};
 		for (let i = 0; i < json.length; i++) {
 			subredditPosts[i] = {};
