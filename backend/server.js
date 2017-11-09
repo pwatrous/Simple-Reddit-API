@@ -3,13 +3,15 @@ const app = express();
 const request = require("request");
 
 // set port
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
-app.get("/", (req, res) => { 
+const router = express.Router();
+
+router.get("/", (req, res) => { 
 	res.json({ success: "Everything is working!" }); 
 });
 
-app.get("/subreddit/:name", (req, res) => {
+router.get("/subreddit/:name", (req, res) => {
 	let url = "http://www.reddit.com/r/" + req.params.name + ".json";
 	request(url, function(error, response, body) {
 		let json = JSON.parse(body).data.children;
@@ -18,13 +20,15 @@ app.get("/subreddit/:name", (req, res) => {
 		// extracts the relevant information from each post in the json response
 		let subredditPosts = {};
 		for (let i = 0; i < json.length; i++) {
-			subredditPosts[i] = {};
+			subredditPosts[i] = { };
 			subredditPosts[i].title = json[i].data.title;
 			subredditPosts[i].url = json[i].data.url;
 		}
 		res.json({ subreddit: nameOfSubreddit, posts: subredditPosts });
 	});
 });	
+
+app.use("/api", router);
 
 app.listen(port, () => {
 	console.log('App listening on port: ' + port);
