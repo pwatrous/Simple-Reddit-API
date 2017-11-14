@@ -1,10 +1,15 @@
-.half-view {
-	float: left;
-	width: 50%;
+.simple-reddit-api {
+    display: flex;
+    background-color: #d3d3d3;
 }
 
-.simple-reddit-api:after {
-    content: "";
-    display: table;
-    clear: both;
+.half-view {
+	flex-direction: column;
+	padding-top: 30px;
+	align-items: center;
+	padding: 2%;
+}
+
+#quicksand {
+	font-family: 'Quicksand', sans-serif; 
 }

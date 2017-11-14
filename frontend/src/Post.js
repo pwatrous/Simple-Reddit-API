@@ -13,15 +13,14 @@ class Post extends Component {
 
 	componentDidMount() {
 		axios.get('/api/subreddit/' + 'news')
-			.then(response => this.setState({ title: response.posts[this.props.id].title,
-																				url: response.posts[this.props.id].url }));
+			.then(response => this.setState({ title: response.data.posts[this.props.id].title,
+																				url: response.data.posts[this.props.id].url }));
 	}
 
   render() {
     return (
       <div>
-      	<h1>this.state.title</h1>
-      	<h1>this.state.url</h1>
+      	<a href={this.state.url} target="blank">{this.state.title}</a>
       </div>
     );
   }
