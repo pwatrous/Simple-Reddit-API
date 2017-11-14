@@ -1,6 +1,6 @@
 # Simple-Reddit-API
 
-(https://i.imgur.com/PSrfhij.png)
+![Screenshot](https://i.imgur.com/PSrfhij.png)
 
 ## Installation Guide:
 ### 1. Clone the repository
