@@ -20,7 +20,7 @@
 ### The frontend simply presents the json in a more readable format. I chose to allow the user to examine the difference between two subreddits as I thought it would be a more involved process than simplying displaying json for a single subreddit. It also provides functionality that does not exist within the base reddit page. I also find it very interesting to examine differing subreddits to see how different communities react to different news events.
 
 ## Live site:
-### TODO: insert heroku link
+### [Website](https://simple-reddit-api.herokuapp.com/)
 
 ## Things I learned during this project:
 ### * Node and Express
