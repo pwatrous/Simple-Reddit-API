@@ -7,7 +7,7 @@
 ### 1. Clone the repository
 ### 2. Open up two terminals
 ### 3. In one terminal window, `cd` into the backend directory and run `npm install` followed by `npm start`. This will start the backend on port 8000.
-### 4. In another terminal window, `cd` into the frontend directory and run `npm install` followed by `npm start`. This will start the frontend on port 3000.
+### 4. In another terminal window, `cd` into the project directory and run `npm install` followed by `npm start`. This will start the frontend on port 3000.
 ### 5. You can now access the app by typing in `localhost:3000` in your web browser.
 
 ## Frameworks Used:
