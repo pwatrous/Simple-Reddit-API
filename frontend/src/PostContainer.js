@@ -11,8 +11,8 @@ class PostContainer extends Component {
   };
 }
 
-	componentDidMount() {
-		axios.get('/api/subreddit/' + 'news')
+  render() {
+  	axios.get('/api/subreddit/' + this.props.subreddit)
 			.then(response => {
 				let titleArray = [];
 				let urlArray = []
@@ -22,12 +22,13 @@ class PostContainer extends Component {
 				}
 				this.setState({ titles: titleArray, urls: urlArray });
 			})
-	}
+			.catch(function (error) {
+    		console.log(error);
+  		});
 
-  render() {
   	let posts = [];
   	for (let i = 0; i < 25; i++) {
-  		posts.push(<Post title={this.state.titles[i]} url={this.state.urls[i] }/>);
+  		posts.push(<Post key={i} title={this.state.titles[i]} url={this.state.urls[i] }/>);
 
   	}
     return (

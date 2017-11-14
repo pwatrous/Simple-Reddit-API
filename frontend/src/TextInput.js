@@ -4,13 +4,15 @@ class TextInput extends Component {
   render() {
     return (
       <div className="text-input">
-      	<form>
-  				<div class="form-group">
-    				<label for="subreddit">Subreddit: </label>
-    				<input type="subreddit" class="form-control" id="subreddit" placeholder="Enter a subreddit"></input>
+  				<div className="form-group">
+    				<label>Subreddit: </label>
+    				<input type="text" 
+    				       className="form-control" 
+    				       id="subreddit" 
+    				       value={this.props.subreddit}
+    				       onBlur={this.props.handleChange}
+    				       placeholder="Enter a subreddit"></input>
   				</div>
-					<button type="submit" class="btn btn-primary">Submit</button>
-				</form>
     	</div>
     );
   }

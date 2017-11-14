@@ -14,17 +14,23 @@ router.get("/", (req, res) => {
 router.get("/subreddit/:name", (req, res) => {
 	let url = "http://www.reddit.com/r/" + req.params.name + ".json";
 	request(url, function(error, response, body) {
-		let json = JSON.parse(body).data.children;
-		// fetches the subreddit name from the json response
-		let nameOfSubreddit = json[0].data.subreddit;
-		// extracts the relevant information from each post in the json response
-		let subredditPosts = {};
-		for (let i = 0; i < json.length; i++) {
-			subredditPosts[i] = { };
-			subredditPosts[i].title = json[i].data.title;
-			subredditPosts[i].url = json[i].data.url;
+		try {
+			let json = JSON.parse(body).data.children;
+			// fetches the subreddit name from the json response
+			let nameOfSubreddit = json[0].data.subreddit;
+			// extracts the relevant information from each post in the json response
+			let subredditPosts = {};
+			for (let i = 0; i < json.length; i++) {
+				subredditPosts[i] = { };
+				subredditPosts[i].title = json[i].data.title;
+				subredditPosts[i].url = json[i].data.url;
+			}
+			res.json({ subreddit: nameOfSubreddit, posts: subredditPosts });
 		}
-		res.json({ subreddit: nameOfSubreddit, posts: subredditPosts });
+		catch(error) {
+			console.error(error);
+		}
+		
 	});
 });	
 
