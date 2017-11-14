@@ -5,7 +5,7 @@ const request = require("request");
 // set port
 const port = process.env.PORT || 8000;
 
-const router = express.Router();
+let router = express.Router();
 
 router.get("/", (req, res) => { 
 	res.json({ success: "Everything is working!" }); 
